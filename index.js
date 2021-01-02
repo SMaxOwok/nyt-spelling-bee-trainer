@@ -51,6 +51,12 @@ fetchAnswers().then(answers => {
 
   const listContainer = document.querySelector('.sb-wordlist');
   const gameList = listContainer.querySelector('.sb-wordlist-items');
+  const score = document.querySelector('.sb-wordlist-summary');
+
+  // Add the total word count to the score
+  const totalWords = document.createElement('span');
+  totalWords.innerText = ` (${answers.length} total)`;
+  score.appendChild(totalWords);
 
   // Hide default UI list
   gameList.style.display = 'none';
