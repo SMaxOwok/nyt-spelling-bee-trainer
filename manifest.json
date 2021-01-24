@@ -1,9 +1,13 @@
 {
   "name": "NYT Spelling Bee Trainer",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Display answers sorted by length in game window.",
   "manifest_version": 2,
   "author": "Max Ono",
+
+  "permissions": [
+    "storage"
+  ],
 
   "content_scripts": [
     {
