@@ -18,8 +18,20 @@ const fetchAnswers = async () => {
     .then(html => {
       const domparser = new DOMParser();
       const doc = domparser.parseFromString(html, 'text/html');
+      const answers = [];
+      const pangrams = [];
 
-      return Array.from(doc.querySelectorAll("#main-answer-list ul li")).map(node => node.innerText.trim());
+      Array.from(doc.querySelectorAll("#main-answer-list ul li")).forEach(node => {
+        const word = node.innerText.trim();
+
+        answers.push(word);
+
+        if (node.querySelector('mark')) {
+          pangrams.push(word);
+        }
+      });
+
+      return { answers, pangrams };
     })
     .catch(error => {
       alert('Error fetching NYT Bee data');
@@ -27,7 +39,7 @@ const fetchAnswers = async () => {
     });
 }
 
-fetchAnswers().then(answers => {
+fetchAnswers().then(({ answers, pangrams }) => {
   if (answers.length === 0) return;
 
   const grouped = groupByLength(answers);
@@ -43,6 +55,10 @@ fetchAnswers().then(answers => {
       const innerSpan = document.createElement('span');
       innerSpan.classList.add('sb-anagram');
       innerSpan.innerText = word;
+
+      if (pangrams.includes(word)) {
+        listItem.style.color = '#f8cd05';
+      }
 
       listItem.appendChild(innerSpan);
       answerKey.appendChild(listItem);
