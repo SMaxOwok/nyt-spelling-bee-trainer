@@ -1,4 +1,4 @@
-![nyt-spelling-bee-trainer-screenshot](static/screenshot.png)
+![nyt-spelling-bee-trainer](static/trainer.gif)
 
 # NYT Spelling Bee Trainer
 
