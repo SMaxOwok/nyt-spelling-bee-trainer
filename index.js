@@ -56,7 +56,7 @@ const fetchLocalAnswers = async () =>
 const determineCachedStatus = async () =>
   new Promise((resolve, _reject) =>
     chrome.storage.local.get("currentDate", ({ currentDate }) =>
-      resolve(today <= currentDate)
+      resolve(today === currentDate)
     )
   );
 
