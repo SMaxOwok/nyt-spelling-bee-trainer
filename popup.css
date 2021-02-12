@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 100%;
+  box-shadow: none;
+  border: 1px solid #ccc;
+  border-radius: 2.5rem;
+  height: 2.5rem;
+  min-width: 5.375rem;
+  font-size: 0.875rem;
+  color: #333;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 500ms linear;
+}
+
+button:hover {
+  background-color: #f8cd05;
+}

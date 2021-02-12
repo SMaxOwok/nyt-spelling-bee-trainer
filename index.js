@@ -16,6 +16,7 @@ const initialize = ({ answers = [], pangrams = [] }) => {
   const grouped = groupByLength(answers);
   const answerKey = document.createElement("ul");
   answerKey.classList.add("sb-wordlist-items");
+  answerKey.classList.add("answer-key");
 
   // Make list items for each word and insert into answer key
   Object.values(grouped).forEach((words) =>
@@ -28,7 +29,7 @@ const initialize = ({ answers = [], pangrams = [] }) => {
       innerSpan.innerText = word;
 
       if (pangrams.includes(word)) {
-        listItem.style.color = "#f8cd05";
+        listItem.style.color = "#F8CD05";
       }
 
       listItem.appendChild(innerSpan);
@@ -78,6 +79,7 @@ const initialize = ({ answers = [], pangrams = [] }) => {
     });
     if (!answerKeyItem) return;
 
+    answerKeyItem.classList.add("found");
     answerKeyItem.style.webkitTextSecurity = "none";
   });
 
@@ -85,6 +87,26 @@ const initialize = ({ answers = [], pangrams = [] }) => {
   observer.observe(gameList, { childList: true });
 }
 
+const revealAnswers = () => {
+  const answerKey = document.querySelector(".answer-key");
+  
+  answerKey.querySelectorAll("li:not(.found)").forEach(node => {
+    node.style.color = "#F11313";
+    node.style.webkitTextSecurity = "none";
+  })
+}
+
 chrome.runtime.sendMessage({ type: "INITIALIZE" }, (response) => {
   initialize(response.payload)
 });
+
+chrome.runtime.onMessage.addListener(
+  function(request, _sender, sendResponse) {
+    switch (request.type) {
+      case "REVEAL_ANSWERS":
+        revealAnswers();
+
+        return true;
+    }
+  }
+);
