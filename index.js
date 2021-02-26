@@ -29,6 +29,7 @@ const initialize = ({ answers = [], pangrams = [] }) => {
       innerSpan.innerText = word;
 
       if (pangrams.includes(word)) {
+        listItem.classList.add("pangram")
         listItem.style.color = "#F8CD05";
       }
 
@@ -59,7 +60,8 @@ const initialize = ({ answers = [], pangrams = [] }) => {
     );
     if (!answerKeyItem) return;
 
-    answerKeyItem.style.webkitTextSecurity = "none";
+    answerKeyItem.parentElement.classList.add("found");
+    answerKeyItem.parentElement.style.webkitTextSecurity = "none";
   });
 
   // Attach the answer key in place of the default UI list
@@ -91,7 +93,8 @@ const revealAnswers = () => {
   const answerKey = document.querySelector(".answer-key");
   
   answerKey.querySelectorAll("li:not(.found)").forEach(node => {
-    node.style.color = "#F11313";
+    if (!node.classList.contains("pangram")) node.style.color = "#F11313";
+
     node.style.webkitTextSecurity = "none";
   })
 }
