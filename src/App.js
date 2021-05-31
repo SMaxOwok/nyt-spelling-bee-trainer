@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Controls sort={sort} isRevealed={isRevealed} onSort={setSort} onReveal={setIsRevealed} />
-      <List {...state} />
+      <List sortBy={sort.value} {...state} />
     </div>
   );
 }
