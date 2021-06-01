@@ -5,8 +5,13 @@
   flex-direction: column;
   flex-wrap: wrap;
   list-style: none;
-  max-height: 300px;
   margin: 0;
   padding: 25px;
   overflow-x: scroll;
+  
+  -webkit-text-security: disc;
+}
+
+.List--revealed {
+  -webkit-text-security: none;
 }
