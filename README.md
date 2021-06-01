@@ -1,4 +1,4 @@
-![nyt-spelling-bee-trainer](static/trainer.gif)
+![nyt-spelling-bee-trainer](static/spelling-bee.gif)
 
 # NYT Spelling Bee Trainer
 
@@ -8,9 +8,10 @@ Uses [nytbee.com](https://nytbee.com) to get daily answer information.
 
 ## Installation
 
-1. Clone this repo or download the source files.
+1. Download the latest release.
+2. Unzip files somewhere.
 2. In a blank Chrome window, navigate to `chrome:extensions` in the URL bar.
 3. Ensure "Developer mode" is enabled in the upper right-hand corner.
 4. In the upper left-hand corner, click "Load unpacked".
-5. Select the directory with the source files and click "OK".
+5. Select the directory with the unzipped files and click "OK".
 6. Start playing!
