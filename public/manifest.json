@@ -9,5 +9,14 @@
     "default_popup": "./index.html",
     "default_title": "Open NYT Spelling Bee Trainer",
     "default_icon": "./icon.png"
-  }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://www.nytimes.com/puzzles/spelling-bee"],
+      "all_frames": true,
+      "js": ["./content.js"],
+      "run_at": "document_end"
+    }
+  ]
 }

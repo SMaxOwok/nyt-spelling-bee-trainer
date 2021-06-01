@@ -1,6 +1,6 @@
 .ListItem { 
   border-bottom: 1px solid #DCDCDC;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 7px;
   margin-right: 25px;
   padding: 4px 0 4px 1px;
@@ -10,4 +10,12 @@
 
 .ListItem--pangram {
   color: #F8CD05;
+}
+
+.ListItem--found {
+  -webkit-text-security: none;
+}
+
+.ListItem--revealed {
+  color: #F11313;
 }
