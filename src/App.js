@@ -14,12 +14,12 @@ function App() {
   const [isRevealed, setIsRevealed] = useState(false);
 
   useEffect(() => {
-    fetchData().then(data => dispatch({ type: SET_DATA, payload: data }))
+    fetchData().then((data) => dispatch({ type: SET_DATA, payload: data }));
   }, []);
 
   useEffect(() => {
     if (!chrome.tabs) return;
-    
+
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       chrome.tabs.sendMessage(tabs[0].id, { type: "INITIALIZE" }, (response) =>
         dispatch({ type: SET_FOUND, payload: response })
@@ -29,7 +29,12 @@ function App() {
 
   return (
     <div className="App">
-      <Controls sort={sort} isRevealed={isRevealed} onSort={setSort} onReveal={setIsRevealed} />
+      <Controls
+        sort={sort}
+        isRevealed={isRevealed}
+        onSort={setSort}
+        onReveal={setIsRevealed}
+      />
       <List sortBy={sort.value} isRevealed={isRevealed} {...state} />
     </div>
   );
