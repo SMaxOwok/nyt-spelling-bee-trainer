@@ -9,10 +9,16 @@ import ListItem from "./ListItem";
 
 import "./List.css";
 
-export default function List({ answers, pangrams, found, sortBy, isRevealed }) {
+export default function List({
+  answers,
+  answersVisible,
+  pangrams,
+  found,
+  sortBy,
+}) {
   const isLoading = !answers.length;
   const listClasses = classNames("List", {
-    "List--revealed": isRevealed,
+    "List--answersVisible": answersVisible,
     "List--loading": isLoading,
   });
   const words = sortBy === "length" ? groupByLength(answers) : answers;
@@ -25,10 +31,10 @@ export default function List({ answers, pangrams, found, sortBy, isRevealed }) {
         words.map((answer) => (
           <ListItem
             key={answer}
+            answersVisible={answersVisible}
             word={answer}
             isPangram={pangrams.includes(answer)}
             isFound={found.includes(answer)}
-            isRevealed={isRevealed}
           />
         ))
       )}
@@ -41,5 +47,5 @@ List.propTypes = {
   pangrams: propTypes.array.isRequired,
   found: propTypes.array.isRequired,
   sortBy: propTypes.oneOf(["alpha", "length"]),
-  isRevealed: propTypes.bool.isRequired,
+  answersVisible: propTypes.bool.isRequired,
 };

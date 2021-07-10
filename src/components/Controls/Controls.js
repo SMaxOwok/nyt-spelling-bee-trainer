@@ -4,9 +4,12 @@ import Select from "react-select";
 
 import "./Controls.css";
 
-const sortOptions = [{ value: "alpha", label: "Alphabetical" }, { value: "length", label: "Length"}];
+const sortOptions = [
+  { value: "alpha", label: "Alphabetical" },
+  { value: "length", label: "Length" },
+];
 
-export default function Controls({ sort, isRevealed, onSort, onReveal }) {
+export default function Controls({ sort, answersVisible, onSort, onReveal }) {
   return (
     <div className="Controls">
       <Select
@@ -16,8 +19,11 @@ export default function Controls({ sort, isRevealed, onSort, onReveal }) {
         onChange={onSort}
       />
 
-      <button className="Controls__Button" onClick={() => onReveal(!isRevealed)}>
-        {isRevealed ? "Hide answers" : "Show answers"}
+      <button
+        className="Controls__Button"
+        onClick={() => onReveal(!answersVisible)}
+      >
+        {answersVisible ? "Hide answers" : "Show answers"}
       </button>
     </div>
   );
@@ -25,7 +31,7 @@ export default function Controls({ sort, isRevealed, onSort, onReveal }) {
 
 Controls.propTypes = {
   sort: propTypes.object.isRequired,
-  isRevealed: propTypes.bool.isRequired,
+  answersVisible: propTypes.bool.isRequired,
   onSort: propTypes.func.isRequired,
-  onReveal: propTypes.func.isRequired
+  onReveal: propTypes.func.isRequired,
 };
