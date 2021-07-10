@@ -2,7 +2,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: 15px;
 }
 
 .Controls__Sort {
@@ -11,8 +11,8 @@
 }
 
 .Controls__Button {
-  background-color: #FFF;
-  border: 1px solid #CCC;
+  background-color: #fff;
+  border: 1px solid #ccc;
   border-radius: 40px;
   color: #333;
   font-size: 16px;

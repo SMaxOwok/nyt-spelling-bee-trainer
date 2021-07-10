@@ -1,5 +1,8 @@
-.ListItem { 
-  border-bottom: 1px solid #DCDCDC;
+.ListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc;
   font-size: 16px;
   margin-bottom: 7px;
   margin-right: 25px;
@@ -9,13 +12,30 @@
 }
 
 .ListItem--pangram {
-  color: #F8CD05;
+  color: #f8cd05;
 }
 
 .ListItem--found {
   -webkit-text-security: none;
 }
 
+.ListItem--answersVisible {
+  color: #f11313;
+}
+
 .ListItem--revealed {
-  color: #F11313;
+  -webkit-text-security: none;
+  color: #f11313;
+}
+
+.ListItem--toggle {
+  height: 16px;
+  width: 16px;
+  margin-left: 4px;
+  cursor: pointer;
+  transition: all 100ms linear;
+}
+
+.ListItem--toggle:hover {
+  filter: brightness(50%);
 }

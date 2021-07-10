@@ -11,7 +11,7 @@ import "./App.css";
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [sort, setSort] = useState({ value: "alpha", label: "Alphabetical" });
-  const [isRevealed, setIsRevealed] = useState(false);
+  const [answersVisible, setAnswersVisible] = useState(false);
 
   useEffect(() => {
     fetchData().then((data) => dispatch({ type: SET_DATA, payload: data }));
@@ -30,12 +30,12 @@ function App() {
   return (
     <div className="App">
       <Controls
+        answersVisible={answersVisible}
         sort={sort}
-        isRevealed={isRevealed}
         onSort={setSort}
-        onReveal={setIsRevealed}
+        onReveal={setAnswersVisible}
       />
-      <List sortBy={sort.value} isRevealed={isRevealed} {...state} />
+      <List sortBy={sort.value} answersVisible={answersVisible} {...state} />
     </div>
   );
 }

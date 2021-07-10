@@ -16,7 +16,7 @@
   justify-content: center;
 }
 
-.List--revealed {
+.List--answersVisible {
   -webkit-text-security: none;
 }
 
