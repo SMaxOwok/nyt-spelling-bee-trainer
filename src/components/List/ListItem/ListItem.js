@@ -20,7 +20,7 @@ export default function ListItem({ answersVisible, word, isPangram, isFound }) {
 
   return (
     <li className={listItemClasses}>
-      {word}{" "}
+      {word}
       {!isFound && (
         <img
           className="ListItem--toggle"
