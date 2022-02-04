@@ -2,7 +2,6 @@ import React from "react";
 import propTypes from "prop-types";
 import classNames from "classnames";
 
-import Bee from "assets/images/spelling-bee.svg";
 import { sortByLength } from "helpers";
 
 import ListItem from "./ListItem";
@@ -16,28 +15,22 @@ export default function List({
   found,
   sortBy,
 }) {
-  const isLoading = !answers.length;
   const listClasses = classNames("List", {
     "List--answersVisible": answersVisible,
-    "List--loading": isLoading,
   });
   const words = sortBy === "length" ? sortByLength(answers) : answers.sort();
 
   return (
     <ul className={listClasses}>
-      {isLoading ? (
-        <img className="List__Bee" src={Bee} />
-      ) : (
-        words.map((answer) => (
-          <ListItem
-            key={answer}
-            answersVisible={answersVisible}
-            word={answer}
-            isPangram={pangrams.includes(answer)}
-            isFound={found.includes(answer)}
-          />
-        ))
-      )}
+      {words.map((answer) => (
+        <ListItem
+          key={answer}
+          answersVisible={answersVisible}
+          word={answer}
+          isPangram={pangrams.includes(answer)}
+          isFound={found.includes(answer)}
+        />
+      ))}
     </ul>
   );
 }
