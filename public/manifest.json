@@ -1,7 +1,7 @@
 {
   "name": "NYT Spelling Bee Trainer",
   "description": "Display answers in a popup with sort options.",
-  "version": "2.2",
+  "version": "3.0",
   "manifest_version": 2,
   "author": "Max Ono",
 
@@ -15,8 +15,11 @@
     {
       "matches": ["*://www.nytimes.com/puzzles/spelling-bee"],
       "all_frames": true,
-      "js": ["./content.js"],
-      "run_at": "document_end"
+      "js": ["inject.js"]
     }
+  ],
+
+  "web_accessible_resources": [
+    "content.js"
   ]
 }

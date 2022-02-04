@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 import classNames from "classnames";
 
 import Bee from "assets/images/spelling-bee.svg";
-import { groupByLength } from "helpers";
+import { sortByLength } from "helpers";
 
 import ListItem from "./ListItem";
 
@@ -21,7 +21,7 @@ export default function List({
     "List--answersVisible": answersVisible,
     "List--loading": isLoading,
   });
-  const words = sortBy === "length" ? groupByLength(answers) : answers;
+  const words = sortBy === "length" ? sortByLength(answers) : answers.sort();
 
   return (
     <ul className={listClasses}>
