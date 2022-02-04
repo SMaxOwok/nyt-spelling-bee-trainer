@@ -1,4 +1,4 @@
-export default function groupByLength(answers) {
+export default function sortByLength(answers) {
   const grouped = answers.reduce((obj, answer) => {
     const length = answer.length;
 
